@@ -3,72 +3,110 @@ html {
 }
 
 body {
-  background-color: black;
+  margin: 0;
+  background:
+    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.16), transparent 22%),
+    linear-gradient(135deg, #050505, #111111 45%, #000000);
   color: white;
   font-family: Arial, sans-serif;
-  margin: 0;
 }
 
-.container {
+.hero {
   min-height: 100vh;
-  padding: 80px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+}
+
+.left {
+  padding: 70px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.tag {
-  color: #999;
-  font-size: 18px;
-  letter-spacing: 2px;
+.right {
+  padding: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.eyebrow {
+  color: #aaa;
   text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 13px;
 }
 
-.name {
-  font-size: 90px;
-  font-weight: bold;
-  margin: 0;
+h1 {
+  font-size: clamp(75px, 11vw, 165px);
+  line-height: 0.9;
+  letter-spacing: -7px;
+  margin: 20px 0;
 }
 
-.bio {
-  color: #bdbdbd;
+.subtitle {
+  max-width: 650px;
+  color: #cfcfcf;
   font-size: 24px;
-  max-width: 600px;
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
-.menu {
-  margin-top: 50px;
+.links {
+  margin-top: 45px;
 }
 
-.menu a {
+.links a {
   display: block;
-  font-size: 32px;
   color: white;
   text-decoration: none;
-  margin: 12px 0;
+  font-size: 34px;
+  margin: 14px 0;
   transition: 0.3s;
 }
 
-.menu a:hover {
+.links a:hover {
   opacity: 0.45;
-  transform: translateX(12px);
+  transform: translateX(14px);
 }
 
-section {
-  min-height: 70vh;
-  padding: 80px;
-  border-top: 1px solid #222;
+.card {
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 28px;
+  padding: 36px;
+  max-width: 380px;
+  min-height: 300px;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(14px);
 }
 
-section h2 {
-  font-size: 56px;
-  margin-bottom: 20px;
+.label {
+  color: #aaa;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-section p {
-  color: #bdbdbd;
-  font-size: 24px;
-  max-width: 750px;
+.card h2 {
+  font-size: 36px;
+  line-height: 1.1;
+}
+
+.card p {
+  color: #cfcfcf;
+  font-size: 18px;
   line-height: 1.5;
+}
+
+.section {
+  min-height: 70vh;
+  padding: 90px 70px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+
+.section h2 {
+  max-width: 900px;
+  font-size: clamp(42px, 6vw, 90px);
+  line-height: 1;
+  letter-spacing: -3px;
 }
