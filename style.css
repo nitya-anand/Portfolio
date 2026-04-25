@@ -108,7 +108,7 @@ nav a:hover {
   opacity: 1;
 }
 
-/* HERO LAYOUT */
+/* HERO */
 .hero {
   min-height: 100vh;
   padding: 140px 55px;
@@ -122,7 +122,6 @@ nav a:hover {
   font-size: clamp(55px, 7vw, 110px);
   line-height: 0.9;
   letter-spacing: -4px;
-  margin: 20px 0 10px;
 }
 
 .hero-title {
@@ -163,12 +162,19 @@ nav a:hover {
   margin-left: -70px;
   margin-top: -45px;
   border-radius: 20px;
-  background: rgba(255,255,255,0.1);
+  overflow: hidden;
   border: 1px solid rgba(255,255,255,0.3);
-  backdrop-filter: blur(10px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+}
+
+.dna-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.4s;
+}
+
+.dna-item:hover img {
+  transform: scale(1.1);
 }
 
 .i1 { transform: rotateY(0deg) translateZ(180px) translateY(-180px); }
