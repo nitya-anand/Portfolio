@@ -14,8 +14,6 @@ body {
   overflow-x: hidden;
 }
 
-/* ===== BACKGROUND BLOBS ===== */
-
 .liquid {
   position: fixed;
   border-radius: 50%;
@@ -44,16 +42,14 @@ body {
 }
 
 @keyframes morphOne {
-  0%,100% { transform: translate(0,0) scale(1); }
-  50% { transform: translate(-40px,30px) scale(1.1); }
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-40px, 30px) scale(1.1); }
 }
 
 @keyframes morphTwo {
-  0%,100% { transform: translate(0,0) scale(1); }
-  50% { transform: translate(40px,-30px) scale(1.1); }
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, -30px) scale(1.1); }
 }
-
-/* ===== BUBBLES ===== */
 
 .bubbles::before,
 .bubbles::after {
@@ -80,8 +76,6 @@ body {
   from { transform: translateY(150px); }
   to { transform: translateY(-900px); }
 }
-
-/* ===== NAV ===== */
 
 nav {
   position: fixed;
@@ -110,8 +104,6 @@ nav a {
 nav a:hover {
   opacity: 1;
 }
-
-/* ===== HERO ===== */
 
 .hero {
   min-height: 100vh;
@@ -148,34 +140,37 @@ nav a:hover {
   font-size: 13px;
 }
 
-/* ===== IMAGE DISPLAY (FIXED — NO MORE HIDING) ===== */
-
 .dna-scene {
   position: relative;
   height: 620px;
+  width: 100%;
+  perspective: 1400px;
+  overflow: visible;
 }
 
 .dna-helix {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%,100% { transform: translateY(0px); }
-  50% { transform: translateY(-15px); }
+  position: absolute;
+  top: 48%;
+  left: 52%;
+  width: 520px;
+  height: 620px;
+  transform-style: preserve-3d;
+  animation: spin 24s linear infinite;
 }
 
 .dna-item {
   position: absolute;
+  left: 50%;
+  top: 50%;
   width: 220px;
   height: 140px;
+  margin-left: -110px;
+  margin-top: -70px;
   border-radius: 24px;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.35);
+  border: 1px solid rgba(255,255,255,0.38);
   background: rgba(255,255,255,0.08);
-  box-shadow: 0 20px 55px rgba(0,0,0,0.4);
+  box-shadow: 0 20px 55px rgba(0,0,0,0.42);
   transition: 0.4s ease;
 }
 
@@ -183,30 +178,33 @@ nav a:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: 0.4s ease;
 }
 
 .dna-item:hover {
-  transform: scale(1.08);
-  z-index: 10;
+  z-index: 20;
+  box-shadow: 0 0 45px rgba(255,255,255,0.35);
 }
 
-/* ===== SPREAD OUT POSITIONS (ALL VISIBLE) ===== */
+.dna-item:hover img {
+  transform: scale(1.1);
+}
 
-.i1  { top: 0; left: 10%; }
-.i2  { top: 40px; left: 45%; }
-.i3  { top: 80px; left: 75%; }
+.i1 { transform: rotateY(0deg) translateZ(330px) translateY(-300px); }
+.i2 { transform: rotateY(36deg) translateZ(330px) translateY(-230px); }
+.i3 { transform: rotateY(72deg) translateZ(330px) translateY(-160px); }
+.i4 { transform: rotateY(108deg) translateZ(330px) translateY(-90px); }
+.i5 { transform: rotateY(144deg) translateZ(330px) translateY(-20px); }
+.i6 { transform: rotateY(180deg) translateZ(330px) translateY(50px); }
+.i7 { transform: rotateY(216deg) translateZ(330px) translateY(120px); }
+.i8 { transform: rotateY(252deg) translateZ(330px) translateY(190px); }
+.i9 { transform: rotateY(288deg) translateZ(330px) translateY(260px); }
+.i10 { transform: rotateY(324deg) translateZ(330px) translateY(330px); }
 
-.i4  { top: 180px; left: 25%; }
-.i5  { top: 220px; left: 60%; }
-
-.i6  { top: 320px; left: 5%; }
-.i7  { top: 360px; left: 40%; }
-.i8  { top: 400px; left: 75%; }
-
-.i9  { top: 500px; left: 20%; }
-.i10 { top: 540px; left: 60%; }
-
-/* ===== SECTIONS ===== */
+@keyframes spin {
+  from { transform: translate(-50%, -50%) rotateX(6deg) rotateY(0deg); }
+  to { transform: translate(-50%, -50%) rotateX(6deg) rotateY(360deg); }
+}
 
 .section {
   min-height: 80vh;
@@ -221,8 +219,6 @@ nav a:hover {
   letter-spacing: -3px;
 }
 
-/* ===== REVEAL ===== */
-
 .reveal {
   opacity: 0;
   transform: translateY(45px);
@@ -233,8 +229,6 @@ nav a:hover {
   opacity: 1;
   transform: translateY(0);
 }
-
-/* ===== MOBILE ===== */
 
 @media (max-width: 850px) {
   nav {
@@ -251,7 +245,19 @@ nav a:hover {
   }
 
   .dna-scene {
-    height: 700px;
+    height: 520px;
+  }
+
+  .dna-helix {
+    left: 50%;
+    width: 360px;
+  }
+
+  .dna-item {
+    width: 150px;
+    height: 100px;
+    margin-left: -75px;
+    margin-top: -50px;
   }
 
   .section {
