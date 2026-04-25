@@ -14,7 +14,6 @@ body {
   overflow-x: hidden;
 }
 
-/* LIQUID BACKGROUND */
 .liquid {
   position: fixed;
   border-radius: 50%;
@@ -52,7 +51,6 @@ body {
   50% { transform: translate(40px,-30px) scale(1.1); }
 }
 
-/* BUBBLES */
 .bubbles::before,
 .bubbles::after {
   content: "";
@@ -79,7 +77,6 @@ body {
   to { transform: translateY(-900px); }
 }
 
-/* NAV */
 nav {
   position: fixed;
   top: 0;
@@ -108,7 +105,6 @@ nav a:hover {
   opacity: 1;
 }
 
-/* HERO */
 .hero {
   min-height: 100vh;
   padding: 140px 55px;
@@ -122,11 +118,12 @@ nav a:hover {
   font-size: clamp(55px, 7vw, 110px);
   line-height: 0.9;
   letter-spacing: -4px;
+  margin: 20px 0 10px;
 }
 
 .hero-title {
   font-size: clamp(32px, 5vw, 65px);
-  margin-bottom: 20px;
+  margin: 0 0 20px;
   color: #f5b7ff;
 }
 
@@ -136,72 +133,93 @@ nav a:hover {
   max-width: 600px;
 }
 
-/* DNA HELIX */
+.eyebrow {
+  color: #f5b7ff;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 13px;
+}
+
 .dna-scene {
-  height: 500px;
+  height: 540px;
   display: flex;
   align-items: center;
   justify-content: center;
-  perspective: 1000px;
+  perspective: 1200px;
 }
 
 .dna-helix {
-  width: 300px;
-  height: 450px;
+  width: 330px;
+  height: 500px;
   position: relative;
   transform-style: preserve-3d;
-  animation: spin 12s linear infinite;
+  animation: spin 16s linear infinite;
 }
 
 .dna-item {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 140px;
-  height: 90px;
-  margin-left: -70px;
-  margin-top: -45px;
-  border-radius: 20px;
+  width: 150px;
+  height: 100px;
+  margin-left: -75px;
+  margin-top: -50px;
+  border-radius: 22px;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.3);
+  border: 1px solid rgba(255,255,255,0.35);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+  transition: 0.4s ease;
 }
 
 .dna-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: 0.4s;
+  transition: 0.4s ease;
+}
+
+.dna-item:hover {
+  z-index: 20;
+  box-shadow: 0 0 45px rgba(255,255,255,0.35);
 }
 
 .dna-item:hover img {
-  transform: scale(1.1);
+  transform: scale(1.12);
 }
 
-.i1 { transform: rotateY(0deg) translateZ(180px) translateY(-180px); }
-.i2 { transform: rotateY(60deg) translateZ(180px) translateY(-100px); }
-.i3 { transform: rotateY(120deg) translateZ(180px) translateY(-20px); }
-.i4 { transform: rotateY(180deg) translateZ(180px) translateY(60px); }
-.i5 { transform: rotateY(240deg) translateZ(180px) translateY(130px); }
-.i6 { transform: rotateY(300deg) translateZ(180px) translateY(200px); }
+.i1 { transform: rotateY(0deg) translateZ(200px) translateY(-220px); }
+.i2 { transform: rotateY(36deg) translateZ(200px) translateY(-170px); }
+.i3 { transform: rotateY(72deg) translateZ(200px) translateY(-120px); }
+.i4 { transform: rotateY(108deg) translateZ(200px) translateY(-70px); }
+.i5 { transform: rotateY(144deg) translateZ(200px) translateY(-20px); }
+.i6 { transform: rotateY(180deg) translateZ(200px) translateY(30px); }
+.i7 { transform: rotateY(216deg) translateZ(200px) translateY(80px); }
+.i8 { transform: rotateY(252deg) translateZ(200px) translateY(130px); }
+.i9 { transform: rotateY(288deg) translateZ(200px) translateY(180px); }
+.i10 { transform: rotateY(324deg) translateZ(200px) translateY(230px); }
 
 @keyframes spin {
-  to { transform: rotateY(360deg); }
+  from { transform: rotateY(0deg) rotateX(8deg); }
+  to { transform: rotateY(360deg) rotateX(8deg); }
 }
 
-/* SECTIONS */
 .section {
-  padding: 100px 55px;
+  min-height: 80vh;
+  padding: 110px 55px;
+  border-top: 1px solid rgba(255,255,255,0.12);
 }
 
 .section h2 {
+  max-width: 1000px;
   font-size: clamp(40px, 6vw, 90px);
+  line-height: 1;
+  letter-spacing: -3px;
 }
 
-/* REVEAL */
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
-  transition: 0.8s;
+  transform: translateY(45px);
+  transition: 0.8s ease;
 }
 
 .reveal.active {
@@ -209,13 +227,25 @@ nav a:hover {
   transform: translateY(0);
 }
 
-/* MOBILE */
 @media (max-width: 850px) {
-  .hero {
-    grid-template-columns: 1fr;
+  nav {
+    padding: 22px;
   }
 
   nav div {
     display: none;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 120px 25px 80px;
+  }
+
+  .dna-scene {
+    height: 430px;
+  }
+
+  .section {
+    padding: 90px 25px;
   }
 }
